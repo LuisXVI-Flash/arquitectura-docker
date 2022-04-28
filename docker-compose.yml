@@ -2,7 +2,7 @@
 version: '3.1'
 
 services:
-    chat_db:
+    teca_db:
       image: mariadb
       command: --default-authentication-plugin=mysql_native_password
       restart: always
@@ -17,9 +17,9 @@ services:
       ports:
         - 4099:8080
 
-    chat_be:
+    teca_be:
       depends_on:
-        - chat_db
+        - teca_db
       build:
         context: ${BE_APP_PATH}
         dockerfile: ${DOCKER_APP_PATH}/.backend/Dockerfile
@@ -28,7 +28,7 @@ services:
       ports:
         - 4100:4100
 
-    chat_fe:
+    teca_fe:
       build:
         context: ${FE_APP_PATH}
         dockerfile: ${DOCKER_APP_PATH}/.frontend/Dockerfile
