@@ -39,9 +39,9 @@ CREATE TABLE `cargo_trabajador` (
 --
 
 INSERT INTO `cargo_trabajador` (`idcargo_trabajador`, `tipo_trabajador`, `ruta_acceso`) VALUES
-(1, 'administrador de datos', '/admindatos'),
+(1, 'administrador del sistema', '/admisistemas'),
 (2, 'back auditor', '/backauditor'),
-(3, 'administrador del sistema', '/admisistemas');
+(3, 'administrador de datos', '/admindatos');
 
 -- --------------------------------------------------------
 
