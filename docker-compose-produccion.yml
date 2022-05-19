@@ -31,7 +31,7 @@ services:
     teca_fe:
       build:
         context: ${FE_APP_PATH}
-        dockerfile: ${DOCKER_APP_PATH}/.frontend/Dockerfile
+        dockerfile: ${DOCKER_APP_PATH}/.frontend-produccion/Dockerfile
       volumes:
         - ${FE_APP_PATH}:/usr/src/app
       ports:
