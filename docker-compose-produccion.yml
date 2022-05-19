@@ -1,0 +1,38 @@
+# docker-compose up
+version: '3.1'
+
+services:
+    teca_db:
+      image: mariadb
+      command: --default-authentication-plugin=mysql_native_password
+      restart: always
+      environment:
+          MYSQL_ROOT_PASSWORD: 12345678
+      ports:
+        - 3307:3306
+
+    adminer:
+      image: adminer
+      restart: always
+      ports:
+        - 4099:8080
+
+    teca_be:
+      depends_on:
+        - teca_db
+      build:
+        context: ${BE_APP_PATH}
+        dockerfile: ${DOCKER_APP_PATH}/.backend/Dockerfile
+      volumes:
+        - ${BE_APP_PATH}:/usr/src/app
+      ports:
+        - 4100:4100
+
+    teca_fe:
+      build:
+        context: ${FE_APP_PATH}
+        dockerfile: ${DOCKER_APP_PATH}/.frontend/Dockerfile
+      volumes:
+        - ${FE_APP_PATH}:/usr/src/app
+      ports:
+        - "80:80"
