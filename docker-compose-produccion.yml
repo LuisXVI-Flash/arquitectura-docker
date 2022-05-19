@@ -22,7 +22,7 @@ services:
         - teca_db
       build:
         context: ${BE_APP_PATH}
-        dockerfile: ${DOCKER_APP_PATH}/.backend/Dockerfile
+        dockerfile: ${DOCKER_APP_PATH}/.backend-production/Dockerfile
       volumes:
         - ${BE_APP_PATH}:/usr/src/app
       ports:
