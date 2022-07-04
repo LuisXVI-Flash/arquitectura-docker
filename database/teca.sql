@@ -32,7 +32,7 @@ CREATE TABLE `cargo_trabajador` (
   `idcargo_trabajador` int(11) NOT NULL,
   `tipo_trabajador` varchar(30) NOT NULL,
   `ruta_acceso` varchar(45) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB ;
 
 --
 -- Volcado de datos para la tabla `cargo_trabajador`
@@ -56,7 +56,7 @@ CREATE TABLE `clientes` (
   `correo` varchar(30) NOT NULL,
   `dni` int(8) NOT NULL,
   `celular` int(9) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB  ;
 
 --
 -- Volcado de datos para la tabla `clientes`
@@ -80,7 +80,7 @@ CREATE TABLE `producto` (
   `id` int(15) NOT NULL,
   `pac` varchar(15) NOT NULL,
   `estado` int(2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB  ;
 
 --
 -- Volcado de datos para la tabla `producto`
@@ -104,18 +104,19 @@ INSERT INTO `producto` (`idproducto`, `id`, `pac`, `estado`) VALUES
 CREATE TABLE `solicitud` (
   `idsolicitud` int(11) NOT NULL,
   `fecha` timestamp NOT NULL,
+  `estado` int(1) NOT NULL,
   `idproducto` int(11) NOT NULL,
   `idcliente` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB  ;
 
 --
 -- Volcado de datos para la tabla `solicitud`
 --
 
-INSERT INTO `solicitud` (`idsolicitud`, `fecha`, `idproducto`, `idcliente`) VALUES
-(9, '2021-06-26 05:00:00', 13, 1),
-(10, '2021-06-29 05:00:00', 14, 25),
-(20, '2021-07-19 04:14:28', 6, 24);
+INSERT INTO `solicitud` (`idsolicitud`, `fecha`, `estado`,`idproducto`, `idcliente`) VALUES
+(9, '2021-06-26 05:00:00', 1, 13, 1),
+(10, '2021-06-29 05:00:00', 1, 14, 25),
+(20, '2021-07-19 04:14:28', 1, 6, 24);
 
 -- --------------------------------------------------------
 
@@ -132,7 +133,7 @@ CREATE TABLE `trabajadores` (
   `usuario` varchar(200) NOT NULL,
   `idcargo_trabajador` int(11) NOT NULL,
   `estado` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB  ;
 
 --
 -- Volcado de datos para la tabla `trabajadores`
